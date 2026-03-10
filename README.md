@@ -1,4 +1,4 @@
-# 🧩 Custom Programming Language
+# ⏾⋆.˚ Custom Programming Language ˙⋆✮
 
 A small programming language and compiler implemented using **Bison/YACC and C++** as part of a Compiler Design project.
 
