@@ -1,0 +1,81 @@
+// --------------------  --------------------
+
+// variabile globale
+a : int <~ 2;
+b : int <~ 3;
+flag : bool <~ true;
+T : bool <~ false;
+
+// functie globala (int)
+SPELL g(x : int) : int {
+    PARCHMENT { }
+    ACCIO x + 1;
+}
+
+// functie globala (int)
+SPELL f(x : int) : int {
+    PARCHMENT { }
+    ACCIO x * 2;
+}
+
+// functie globala cu while + bool expr
+SPELL antrenament(ore : int) : int {
+    PARCHMENT {
+        limita : int <~ 0;
+        mesaj : string <~ "Antrenament in curs";
+    }
+
+    CHANT (ore > limita && ore + 5 > limita - 2) {
+        Print(mesaj);
+        ore <~ ore - 1;
+    }
+
+    ACCIO ore;
+}
+
+// -------------------- clasa  --------------------
+
+HOUSE Vrajitor {
+    FIELD putere : int;
+
+    // metoda (return int) + while + PROPHECY
+    CHARM upgrade(ore : int) : int {
+        PARCHMENT {
+            eu : Vrajitor <~ SUMMON Vrajitor();
+            ok : bool <~ T;
+        }
+
+        // while (true)
+        CHANT (ore > 0 && ok == true) {
+
+            // PROPHECY (true)  (bloc fara declaratii)
+            PROPHECY (ore > 2) {
+                eu ** putere <~ eu ** putere + 1;
+            } else {
+                eu ** putere <~ eu ** putere + 1;
+            }
+
+            // expresii + apeluri de functii in expresii
+            ore <~ ore - 1 + f(g(a + b) + a * b);
+
+            Print(eu ** putere);
+
+        }
+
+        ACCIO eu ** putere;
+    }
+}
+
+// obiect global
+Harry : Vrajitor <~ SUMMON Vrajitor();
+
+// ----------------------------------------
+DUEL {
+    antrenament(5);
+
+    Harry ** putere <~ 100;
+
+    Harry ** upgrade(5);
+
+    Print(Harry ** putere);
+}

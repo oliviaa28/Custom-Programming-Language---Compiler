@@ -1,0 +1,110 @@
+HOUSE A {
+    FIELD x : int;
+    FIELD y : int;
+
+    CHARM A() : A {
+         x <~ 19;
+        y <~ 90;
+    }
+
+    CHARM g(z : int) : int {
+        ACCIO z + 100;
+    }
+}
+
+SPELL f(z : int) : int {
+    PARCHMENT {
+        x : int;
+        b : int;
+        flag : bool;
+    }
+
+    x <~ 5;
+    b <~ 10;
+
+    PROPHECY (flag == true) {
+        ACCIO x + b;
+    }
+
+    ACCIO z * 10;
+}
+//comentariu 
+HOUSE B {
+    FIELD b : int;
+    FIELD bb : int;
+
+    CHARM B() : int {
+        b <~ 5;
+        bb <~ 10;
+    }
+
+    CHARM g( z : int ) : int {
+        PARCHMENT {
+            a : A;
+            x : int;
+        }
+
+        a <~ SUMMON A();
+        a ** A();
+        x <~ 100;
+        ACCIO x + a ** x + z;
+    }
+
+    CHARM f(z : int) : int {
+        ACCIO 200 * z;
+    }
+}
+
+SPELL bfunc(b : bool, s : string) : string {
+
+    PROPHECY (b == true) {
+        ACCIO s;
+    } else {
+        ACCIO "bau";
+    }
+}
+
+fx : float;
+s : string;
+ix : int;
+b1 : bool;
+b2 : bool;
+obb : B;
+oba : A;
+
+DUEL {
+    fx <~ 65.0;
+    fx <~ fx + 10.0 * fx - 65.0;
+    Print(fx);
+
+    s <~ "test";
+    Print(s);
+    s <~ "otherstr";
+    Print(s);
+
+    oba <~ SUMMON A();
+    oba ** A();
+    obb <~ SUMMON B();
+    obb ** B();
+
+    ix <~ 10;
+    ix <~ ix + (ix + f(ix * 4)) * 2 + oba ** x * oba ** y + oba ** g(10) + obb ** b * obb ** bb;
+    Print(ix);
+
+    oba ** x <~ f(1000);
+    oba ** y <~ f(100);
+    b2 <~ true;
+    b1 <~ b2 || !b2;
+    Print(bfunc(b1, "s"));
+
+    Print(f(ix) + 5 > 5 + obb ** b);
+    Print(ix + 5 > ix + 6);
+    Print(b1 == false);
+    Print(oba ** x == oba ** y);
+
+    Print(ix + 5 > ix + 6 || (b1 == false && f(ix) + 5 > 5 + obb ** b) || oba ** x == oba ** y);
+
+    PROPHECY (ix + 2 > ix + 5 && ix + 3 > f(45 * 3) - 10) {
+        ix <~ 100;
+    }
+}

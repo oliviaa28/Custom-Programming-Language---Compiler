@@ -1,0 +1,87 @@
+== Scope: Global ===
+Symbols:
+ Name: A , Type: class, Kind: Class
+ Name: B , Type: class, Kind: Class
+ Name: b1 , Type: bool, Kind: Var, Value: error
+ Name: b2 , Type: bool, Kind: Var, Value: true
+ Name: bfunc , Type: string, Return: string, Parameters: (bool string ), Kind: Func
+ Name: f , Type: int, Return: int, Parameters: (int float bool ), Kind: Func
+ Name: fx , Type: float, Kind: Var, Value: 65.000000
+ Name: ix , Type: int, Kind: Var, Value: 10
+ Name: oba , Type: A, Kind: Var, Value: error
+ Name: obb , Type: B, Kind: Var, Value: error
+ Name: s , Type: string, Kind: Var, Value: test
+ Name: x , Type: int, Kind: Var
+ Name: z , Type: int, Kind: Var
+
+== Scope: Class_A ===
+Parent scope: Global
+Symbols:
+ Name: A , Type: A, Return: A, Parameters: (), Kind: Func
+ Name: fl , Type: float, Return: float, Parameters: (int ), Kind: Func
+ Name: g , Type: int, Return: int, Parameters: (int ), Kind: Func
+ Name: x , Type: int, Kind: Field
+ Name: y , Type: int, Kind: Field
+ Name: z , Type: float, Kind: Field
+
+== Scope: Method_A ===
+Parent scope: Class_A
+Symbols:
+ Name: this , Type: A, Kind: Var
+
+== Scope: Method_g ===
+Parent scope: Class_A
+Symbols:
+ Name: this , Type: A, Kind: Var
+ Name: z , Type: int, Kind: Param
+
+== Scope: Method_fl ===
+Parent scope: Class_A
+Symbols:
+ Name: this , Type: A, Kind: Var
+ Name: x , Type: int, Kind: Param
+
+== Scope: Func_f ===
+Parent scope: Global
+Symbols:
+ Name: b , Type: bool, Kind: Param
+ Name: x , Type: float, Kind: Param
+ Name: z , Type: int, Kind: Param
+
+== Scope: Class_B ===
+Parent scope: Global
+Symbols:
+ Name: B , Type: int, Return: int, Parameters: (), Kind: Func
+ Name: b , Type: int, Kind: Field
+ Name: bb , Type: int, Kind: Field
+ Name: f , Type: int, Return: int, Parameters: (int ), Kind: Func
+ Name: g , Type: int, Return: int, Parameters: (int ), Kind: Func
+
+== Scope: Method_B ===
+Parent scope: Class_B
+Symbols:
+ Name: this , Type: B, Kind: Var
+
+== Scope: Method_g ===
+Parent scope: Class_B
+Symbols:
+ Name: this , Type: B, Kind: Var
+ Name: z , Type: int, Kind: Param
+
+== Scope: Method_f ===
+Parent scope: Class_B
+Symbols:
+ Name: this , Type: B, Kind: Var
+ Name: var , Type: int, Kind: Var
+ Name: z , Type: int, Kind: Param
+
+== Scope: Func_bfunc ===
+Parent scope: Global
+Symbols:
+ Name: b , Type: bool, Kind: Param
+ Name: s , Type: string, Kind: Param
+
+== Scope: Global_Duel ===
+Parent scope: Global
+Symbols:
+

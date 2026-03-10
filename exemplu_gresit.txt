@@ -1,0 +1,100 @@
+HOUSE A {
+    FIELD x : int;
+    FIELD y : int;
+    FIELD z : float;
+
+    CHARM A() : A {
+        x <~ 19;
+        y <~ 90;
+    }
+
+    CHARM g(z : int) : int {
+       // ACCIO zzz * 100;
+    }
+
+    CHARM fl(x : int) : float {
+        PROPHECY (x == 20) {
+            ACCIO 10.0;
+        }
+        ACCIO 20.0;
+    }
+}
+
+SPELL f(z : int, x : float, b : bool) : int {
+    PROPHECY (b == true && x > 1.0) {
+        ACCIO z * 10;
+    }
+    ACCIO z;
+}
+
+HOUSE B {
+    FIELD b : int;
+    FIELD bb : int;
+
+    CHARM B() : int {
+          b <~ 5;
+          bb <~ 10;
+        ACCIO 0;
+    }
+
+    CHARM g(z : int) : int {
+        ACCIO z + b;
+    }
+
+    CHARM f(z : int) : int {
+        PARCHMENT {
+            var : int;
+        }
+        PROPHECY (z > 4) {
+            var <~ 0;
+            ACCIO var + 5;
+        }
+        ACCIO b + bb * z;
+    }
+}
+
+SPELL bfunc(b : bool, s : string) : string {
+    PROPHECY (b == true) {
+        ACCIO s;
+    } else {
+        ACCIO "bau";
+    }
+}
+
+fx : float;
+x : int;
+z : int;
+s : string;
+ix : int;
+// ix : int
+b1 : bool;
+b2 : bool;
+obb : B;
+oba : A;
+
+DUEL {
+   //  zzz <~ 10;
+
+    fx <~ 65.0;
+    ix <~ 10;
+ //   Print(fx - 65.0 + f(10, 10.0, true));
+ //   fx <~ fx * 10 + f(10, 10.0, true) + ix;
+    s <~ "test";
+    b1 <~ true;
+    b2 <~ b1;
+ //   Print(s + b1);
+    b1 <~ b1 + b2;
+ //   fx <~ b1 || b2;
+    oba <~ SUMMON A();
+    obb <~ SUMMON B();
+ //   oba ** x <~ obb ** b + bfunc(b1, s);
+ //   oba ** x <~ obb ** b + fx;
+
+    Print(f(ix, fx, fx));
+    Print(f(ix, fx, true, true));
+
+    oba ** f(ix);
+    oba ** g(fx);
+    oba ** zzz <~ 100;
+    oba ** x <~ oba ** x + oba ** fl(ix);
+}
